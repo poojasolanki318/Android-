@@ -72,4 +72,102 @@ fun main() {
     }
     println()
 
+
+}
+//if else
+fun main(){
+    println("enter first number:")
+    val num1 = readln().toDouble()
+    println("enter second number:")
+    val num2 = readln().toDouble()
+
+    println("1.Addition")
+    println("2.Subtraction")
+    println("3.multiplication")
+    println("4.division")
+    println("enter your choice:")
+    val ch = readln().toInt()
+
+    var result: Double
+
+    if(ch == 1 ) {
+        result = num1 + num2
+        println(result)
+    }
+    else if(ch == 2) {
+        result = num1 - num2
+        println(result)
+    }
+    else if(ch == 3) {
+        result = num1 * num2
+        println(result)
+    }
+    else if(ch == 4) {
+        if(num2 != 0.0){
+            result = num1 / num2
+            println(result)
+        }
+        else{
+            println("not divide")
+        }
+    }
+    else{
+        println("invalid choice")
+    }
+    }
+//switch case(when in kotlin)
+fun main() {
+
+    println("1.Addition")
+    println("2.Subtraction")
+    println("3.multiplication")
+    println("4.division")
+    println("enter your choice:")
+    val no= readln().toInt()
+    print("enter first number: ")
+    val a= readln().toInt()
+    print("enter second number:")
+    val b= readln().toInt()
+    val result = when(no){
+        1->a+b
+        2->a-b
+        3->a*b
+        4->a/b
+        else->"not valid"
+    }
+    print(result)
+}
+
+//using function
+fun main() {
+    println("1.Addition")
+    println("2.Subtraction")
+    println("3.multiplication")
+    println("4.division")
+    println("enter your choice:")
+    val no = readln().toInt()
+    print("enter first number: ")
+    val a = readln().toInt()
+    print("enter second number: ")
+    val b = readln().toInt()
+
+    fun Addition(a: Int, b: Int): Int {
+        return a + b
+    }
+    fun Subtraction(a: Int, b: Int): Int {
+        return a - b
+    }
+    fun multiplication(a: Int, b: Int): Int {
+        return a * b
+    }
+    fun division(a: Int, b: Int): Int {
+        return a / b
+    }
+    when (no) {
+        1 -> println("Addition: ${Addition(a, b)}")
+        2 -> println("Subtraction: ${Subtraction(a, b)}")
+        3 -> println("multiplication: ${multiplication(a, b)}")
+        4 -> println("division: ${division(a, b)}")
+        else -> "not valid"
+    }
 }
