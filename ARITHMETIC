@@ -1,0 +1,168 @@
+MAINACTIVITY.KT
+
+package com.example.myapplication.newpro
+
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_main)
+       val t:EditText=findViewById(R.id.editTextText)
+        val t1:EditText=findViewById(R.id.editTextText2)
+        val ad:Button=findViewById(R.id.button)
+        val sub:Button=findViewById(R.id.button2)
+        val mul:Button=findViewById(R.id.button3)
+        val div:Button=findViewById(R.id.button4)
+        val view:TextView = findViewById(R.id.textView)
+        ad.setOnClickListener()
+        {
+            var num1 = t.text.toString()
+            var num2 = t1.text.toString()
+            val n1 = num1.toDouble()
+            val n2 = num2.toDouble()
+            val ans = n1 + n2
+            view.text="Addition result: $ans"
+        }
+        sub.setOnClickListener()
+        {
+            var num1 = t.text.toString()
+            var num2 = t1.text.toString()
+
+            var n1 = num1.toDouble()
+            var n2 = num2.toDouble()
+            val ans = n1 - n2
+            view.text="Substraction result: $ans"
+        }
+        mul.setOnClickListener()
+        {
+            var num1 = t.text.toString()
+            var num2 = t1.text.toString()
+
+            var n1 = num1.toDouble()
+            var n2 = num2.toDouble()
+            val ans = n1 * n2
+            view.text="Multiplication result: $ans"
+        }
+        div.setOnClickListener()
+        {
+            var num1 = t.text.toString()
+            var num2 = t1.text.toString()
+
+            var n1 = num1.toDouble()
+            var n2 = num2.toDouble()
+            val ans = n1 / n2
+            view.text="Division result: $ans"
+        }
+        }
+    }
+==================================
+ACTIVITY_MAIN.XML
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+   
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:hint="Enter number 1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+  
+    <EditText
+        android:id="@+id/editTextText2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:hint="Enter number 2"
+        app:layout_constraintTop_toBottomOf="@id/editTextText"
+        app:layout_constraintStart_toStartOf="@id/editTextText"
+        app:layout_constraintEnd_toEndOf="@id/editTextText"
+        android:layout_marginTop="16dp"
+        />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Addition"
+        app:layout_constraintTop_toBottomOf="@id/editTextText2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/button3"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        android:layout_marginTop="24dp"
+        />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Multiplication"
+        app:layout_constraintTop_toTopOf="@id/button"
+        app:layout_constraintStart_toEndOf="@id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        />
+
+    <!-- Buttons row 2 -->
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Subtraction"
+        app:layout_constraintTop_toBottomOf="@id/button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/button4"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_marginTop="16dp"
+        />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Division"
+        app:layout_constraintTop_toBottomOf="@id/button3"
+        app:layout_constraintStart_toEndOf="@id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Result"
+        android:textColor="#E91E1E"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
